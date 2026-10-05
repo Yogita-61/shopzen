@@ -1,0 +1,21 @@
+{
+  "name": "shopzen-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "node scripts/dev-local.js",
+    "dev:services": "concurrently \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm --workspace backend run dev",
+    "dev:web": "npm --workspace frontend run dev",
+    "start": "npm --workspace backend start",
+    "build": "npm --workspace frontend run build",
+    "test": "npm --workspace backend test",
+    "load:flash-sale": "npm --workspace backend run load:flash-sale",
+    "db:migrate": "npm --workspace backend run migrate",
+    "db:seed": "npm --workspace backend run seed",
+    "db:reset-flash-sale": "npm --workspace backend run reset:flash-sale"
+  },
+  "devDependencies": {"concurrently":"^9.1.2"}
+}
